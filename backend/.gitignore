@@ -1,8 +1,0 @@
-/node_modules
-/vendor
-/.idea
-.idea/
-.env
-
-/src/config/config.json
-/src/config/connectDB.js
