@@ -3,7 +3,7 @@
 LerryLazzy is an online yarn store where users can explore and purchase a wide variety of high-quality yarns for knitting, crocheting, and other crafts.
 
 ## 🌐 Live Demo
-[👉 Visit Website]([https://lerrylazzy.com](https://wad-project-lerrylazzy.vercel.app/)
+[👉 Visit Website]([https://wad-project-lerrylazzy.vercel.app])
 
 ---
 
