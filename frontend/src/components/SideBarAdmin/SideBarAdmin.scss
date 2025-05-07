@@ -1,0 +1,64 @@
+.side-head, .side-item {
+    background-color: transparent;
+}
+
+
+.navbar-vertical.navbar-expand-lg .navbar-vertical-content .navbar-nav .nav-link {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    padding-left: 1.75rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.navbar-vertical.navbar-expand-lg .navbar-vertical-content .navbar-nav .nav-link.dropdown-indicator {
+    padding-left: 1rem;
+}
+
+.dropdown-indicator-icon::before {
+    content: "\f0da"; /* Font Awesome caret-right */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* Khi mở ra thì đổi sang caret-down */
+a[aria-expanded="true"] .dropdown-indicator-icon::before {
+    content: "\f0d7"; /* Font Awesome caret-down */
+}
+
+/* Bình thường: font-weight mặc định */
+.nav-link-text {
+    font-weight: normal;
+    transition: font-weight 0.2s ease;
+  }
+  
+  // Khi hover vào .nav-link thì chữ in đậm
+  .nav-link:hover .nav-link-text {
+    font-weight: bold;
+  }
+  
+  // Khi menu đang mở (aria-expanded="true") thì chữ in đậm
+  .nav-link[aria-expanded="true"] .nav-link-text {
+    font-weight: bold;
+  }
+  
+
+.navbar-vertical .navbar-vertical-content .navbar-nav .nav {
+    flex-flow: column nowrap;
+    font-size: .8125rem;
+}
+
+.navbar-vertical.navbar-expand-lg .navbar-vertical-content .navbar-nav .nav-link {
+    padding-top: .35rem;
+    padding-bottom: .35rem;
+    padding-left: 1.75rem;
+    margin-left: .75rem;
+    margin-right: .75rem;
+    border-radius: .5rem;
+}
+
+.navbar-vertical.navbar-expand-lg .navbar-vertical-content .navbar-nav .nav .nav-link {
+    padding-left: 3.3125rem;
+    scroll-margin-top: 200px;
+}
