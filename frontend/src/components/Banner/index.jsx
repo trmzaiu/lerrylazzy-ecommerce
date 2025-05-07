@@ -9,14 +9,14 @@ import React from 'react'
             </div>
             <div className='carousel-inner'>
                 <div className='carousel-item active justify-content-center'>
-                    <img src={`${process.env.PUBLIC_URL}/Banner_1.png`} className='d-block img-fluid mx-auto opacity-75' alt='1'/>
+                    <img src={`${process.env.PUBLIC_URL}/images/photos/Banner_1.png`} className='d-block img-fluid mx-auto opacity-75' style={{height: '90vh'}} alt='1'/>
                     <a href='#bestSeller' className='btn btn-outline-dark position-absolute text-uppercase' style={{bottom: '25%', left: '23.5%', border: '2px solid #333', fontSize: '25px'}}>Shop Now</a>
                 </div>
                 <div className='carousel-item justify-content-center'>
-                    <img src={`${process.env.PUBLIC_URL}/Banner_2.png`} className='d-block img-fluid mx-auto' alt='2'/>
+                    <img src={`${process.env.PUBLIC_URL}/images/photos/Banner_2.png`} className='d-block img-fluid mx-auto' style={{height: '90vh'}} alt='2'/>
                 </div>
                 <div className='carousel-item justify-content-center'>
-                    <img src={`${process.env.PUBLIC_URL}/Banner_3.png`}className='d-block img-fluid mx-auto' style={{height: '90vh'}} alt='3'/>
+                    <img src={`${process.env.PUBLIC_URL}/images/photos/Banner_3.png`}className='d-block img-fluid mx-auto' style={{height: '90vh'}} alt='3'/>
                 </div>
             </div>
             <button className='carousel-control-prev' type='button' data-bs-target='#carouselExampleCaptions' data-bs-slide='prev'>
