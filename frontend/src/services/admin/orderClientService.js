@@ -1,6 +1,6 @@
 import axios from '../../axios'
 
-let getOrdersCreated = () => {
+const getOrdersCreated = () => {
     return axios.get('/api/admin/show-order')
 }
 

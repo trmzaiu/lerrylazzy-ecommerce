@@ -1,8 +1,8 @@
 import userService from "../services/userService"
 
-let handleLogin = async (req, res) => {
+const handleLogin = async (req, res) => {
     try {
-        let { username, password } = req.body
+        const { username, password } = req.body
         if (!username || !password) {
             return res.status(400).json({
                 errCode: 1,
@@ -10,8 +10,8 @@ let handleLogin = async (req, res) => {
             })
         }
 
-        let message = await userService.userLogin(username, password)
-        
+        const message = await userService.userLogin(username, password)
+
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling login request: ', error)
@@ -22,9 +22,9 @@ let handleLogin = async (req, res) => {
     }
 }
 
-let handleRegister = async (req, res) => {
+const handleRegister = async (req, res) => {
     try {
-        let message = await userService.userRegister(req.body)
+        const message = await userService.userRegister(req.body)
         console.log(message)
         return res.status(200).json(message)
     } catch (error) {
@@ -36,9 +36,9 @@ let handleRegister = async (req, res) => {
     }
 }
 
-let handleShowProfile = async (req, res) => {
+const handleShowProfile = async (req, res) => {
     try {
-        let message = await userService.findUserByUsername(req.user.username)
+        const message = await userService.findUserByUsername(req.user.username)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show profile request: ', error)
@@ -49,11 +49,11 @@ let handleShowProfile = async (req, res) => {
     }
 }
 
-let handleChangeProfile = async (req, res) => {
+const handleChangeProfile = async (req, res) => {
     try {
-        let data = req.body
-        let username = req.user.username
-        let message = await userService.updateProfile(username, data)
+        const data = req.body
+        const username = req.user.username
+        const message = await userService.updateProfile(username, data)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling profile change request: ', error)
@@ -64,10 +64,10 @@ let handleChangeProfile = async (req, res) => {
     }
 }
 
-let handleChangePassword = async (req, res) => {
+const handleChangePassword = async (req, res) => {
     try {
-        let { oldpassword, newpassword } = req.body
-        let username = req.user.username
+        const { oldpassword, newpassword } = req.body
+        const username = req.user.username
 
         if (!oldpassword || !newpassword) {
             return res.status(400).json({
@@ -76,7 +76,7 @@ let handleChangePassword = async (req, res) => {
             })
         }
 
-        let message = await userService.changePassword(username, oldpassword, newpassword)
+        const message = await userService.changePassword(username, oldpassword, newpassword)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling password change request: ', error)
@@ -87,18 +87,19 @@ let handleChangePassword = async (req, res) => {
     }
 }
 
-let handleRequestResetPassword = async (req, res) => {
+const handleRequestResetPassword = async (req, res) => {
     try {
-        let { username, email } = req.body
+        const { username, email } = req.body
         if (!username || !email) {
             return res.status(400).json({
                 errCode: 1,
                 message: 'Please enter your username and email'
             })
         }
-        let message = await userService.requestResetPassword(username, email)
+        const message = await userService.requestResetPassword(username, email)
         return res.status(200).json(message)
     } catch (error) {
+        console.error('Error handling request reset password: ', error)
         return res.status(500).json({
             errCode: -1,
             message: 'An internal server error occurred.'
@@ -106,20 +107,21 @@ let handleRequestResetPassword = async (req, res) => {
     }
 }
 
-let handleEnterCode = async (req, res) => {
+const handleEnterCode = async (req, res) => {
     try {
-        let { username, code } = req.body
+        const { username, code } = req.body
 
         if (!code) {
             return res.status(400).json({
                 errCode: 1,
                 message: 'Please enter your verify code'
-            })        
+            })
         }
 
-        let message = await userService.checkVerifyCode(username, code)
+        const message = await userService.checkVerifyCode(username, code)
         return res.status(200).json(message)
     } catch (error) {
+        console.error('Error handling enter code request: ', error)
         return res.status(500).json({
             errCode: -1,
             message: 'An internal server error occurred.'
@@ -127,18 +129,18 @@ let handleEnterCode = async (req, res) => {
     }
 }
 
-let handleResetPassword = async (req, res) => {
+const handleResetPassword = async (req, res) => {
     try {
-        let { username, code, password } = req.body
+        const { username, code, password } = req.body
 
         if (!code) {
             return res.status(400).json({
                 errCode: 1,
                 message: 'Please enter your verify code'
-            })        
+            })
         }
 
-        let message = await userService.resetPassword(username, code, password)
+        const message = await userService.resetPassword(username, code, password)
         return res.status(200).json(message)
     } catch (error) {
         console.log('Error handling reset password: ', error)
@@ -149,19 +151,19 @@ let handleResetPassword = async (req, res) => {
     }
 }
 
-let handleDeleteAccount = async (req, res) => {
+const handleDeleteAccount = async (req, res) => {
     try {
-        let username = req.user.username
+        const username = req.user?.username
         if (!username) {
             return res.status(400).json({
                 errCode: 1,
                 message: 'Missing required parameter!'
             })
         }
-        let message = await userService.deleteAccount(username)
+        const message = await userService.deconsteAccount(username)
         return res.status(200).json(message)
     } catch (error) {
-        console.error('Error handling delete account request: ', error)
+        console.error('Error handling deconste account request: ', error)
         return res.status(500).json({
             errCode: -1,
             message: 'An internal server error occurred.'

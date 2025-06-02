@@ -1,11 +1,11 @@
 import reviewService from '../services/reviewService'
 
-let handlePostReview = async (req, res) => {
+const handlePostReview = async (req, res) => {
     try {
-        let userid = req.user.userid 
-        let { productid, rating, comment } = req.body
+        const userid = req.user.userid 
+        const { productid, rating, comment } = req.body
 
-        let review = await reviewService.postReview(userid, productid, rating, comment)
+        const review = await reviewService.postReview(userid, productid, rating, comment)
         return res.status(200).json(review)
     } catch (error) {
         console.error('Error handling post a review request: ', error)

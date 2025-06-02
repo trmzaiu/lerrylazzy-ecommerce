@@ -1,26 +1,22 @@
-import sql from "mssql"
+const { Client } = require('pg')
+require('dotenv').config()
 
 const config = {
-    user: 'sa',
-    password: '123456',
-    server: 'LAPTOPCUATUI',
-    database: 'WoolShop',
-    options: {
-        encrypt: true,
-        trustServerCertificate: true,
-        instancename: 'SQLEXPRESS'
-    },
-    logging: false,
-    port: 1433,
-}
+    user: process.env.DB_USERNAME,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+};
 
-let connectDB = async () => {
-  try {
-      await sql.connect(config)
-      console.log('Connected to SQL Server')
-  } catch (err) {
-      console.error('Error connecting to SQL Server:', err)
-  }
+const connectDB = async () => {
+    const client = new Client(config)
+    try {
+        await client.connect()
+        console.log('Connected to PostgreSQL')
+    } catch (err) {
+        console.error('Error connecting to PostgreSQL:', err)
+    }
 }
 
 module.exports = connectDB

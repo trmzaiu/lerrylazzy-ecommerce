@@ -1,8 +1,8 @@
 import productService from '../services/productService'
 
-let displayProducts = async (req, res) => {
+const displayProducts = async (req, res) => {
     try {
-        let { productid, categoryid, subcategoryid }  = req.query
+        const { productid, categoryid, subcategoryid }  = req.query
         let products = ''
         if (categoryid) {
             products = await productService.getProductsByCategory(categoryid)
@@ -17,10 +17,10 @@ let displayProducts = async (req, res) => {
             products = await productService.getProductById(productid)
             
             // Calculate average rating and total reviews
-            let review = await productService.calculateReview(productid)
+            const review = await productService.calculateReview(productid)
     
             // Calculate total orders
-            let totalOrders = await productService.calTotalOrders(productid)
+            const totalOrders = await productService.calTotalOrders(productid)
             
             products.AverageRating = review.averageRating
             products.TotalReviews = review.totalReviews
@@ -40,7 +40,7 @@ let displayProducts = async (req, res) => {
     }
 }
 
-let displayAllProduct = async (req,res) => {
+const displayAllProduct = async (req,res) => {
     try {
         const products = await productService.getAllProducts()
         return res.status(200).json(products)
@@ -53,9 +53,9 @@ let displayAllProduct = async (req,res) => {
     }
 }
 
-let displayHotProduct = async (req, res) => {
+const displayHotProduct = async (req, res) => {
     try {
-        let message = await productService.getHotProduct()
+        const message = await productService.getHotProduct()
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling display prroduct request: ', error)
@@ -66,9 +66,9 @@ let displayHotProduct = async (req, res) => {
     }
 }
 
-let displayNewProduct = async (req, res) => {
+const displayNewProduct = async (req, res) => {
     try {
-        let message = await productService.getNewProduct()
+        const message = await productService.getNewProduct()
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling display product request: ', error)
@@ -79,9 +79,9 @@ let displayNewProduct = async (req, res) => {
     }
 }
 
-let displayProductReviews = async (req, res) => {
+const displayProductReviews = async (req, res) => {
     try {
-        let { productid } = req.query
+        const { productid } = req.query
 
         if (!productid) {
             return res.status(400).json({
@@ -90,7 +90,7 @@ let displayProductReviews = async (req, res) => {
             })
         }
 
-        let reviews = await productService.getAllReviews(productid)
+        const reviews = await productService.getAllReviews(productid)
         return res.status(200).json(reviews)
     } catch (error) {
         console.error('Error handling display product reviews request: ', error)
@@ -101,11 +101,11 @@ let displayProductReviews = async (req, res) => {
     }
 }
 
-let displayProductByKeyword = async (req, res) => {
+const displayProductByKeyword = async (req, res) => {
     try {
-        let { keyword } = req.query
+        const { keyword } = req.query
 
-        let { products, count } = await productService.searchProduct(keyword)
+        const { products, count } = await productService.searchProduct(keyword)
         if (count === 0) {
             return res.status(404).json({
                 errCode: 1,

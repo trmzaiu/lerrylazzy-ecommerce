@@ -1,12 +1,12 @@
 import orderClientService from '../../services/admin/orderClientService'
 
-let countOrdersCreated = async (req, res) => {
+const countOrdersCreated = async (req, res) => {
     try {
-        let todayCount = await orderClientService.countOrdersCreatedToday()
-        let monthlyCount = await orderClientService.countOrdersCreatedThisMonth()
-        let totalCount = await orderClientService.getAllOrdersAndCount()
-        let order = await orderClientService.getOrdersForLast7Days()
-        let allOrder = await orderClientService.showAllOrders()
+        const todayCount = await orderClientService.countOrdersCreatedToday()
+        const monthlyCount = await orderClientService.countOrdersCreatedThisMonth()
+        const totalCount = await orderClientService.getAllOrdersAndCount()
+        const order = await orderClientService.getOrdersForLast7Days()
+        const allOrder = await orderClientService.showAllOrders()
 
         return res.status(200).json({
             todayCount,
@@ -24,7 +24,7 @@ let countOrdersCreated = async (req, res) => {
     }
 }
 
-// let getAllOrders = async (req, res) => {
+// const getAllOrders = async (req, res) => {
 //     try {
         
 //         return res.status(200).json(message)

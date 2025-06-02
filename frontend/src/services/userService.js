@@ -1,6 +1,6 @@
 import axios from '../axios' 
 
-let handleLoginApi = (username, password) => {
+const handleLoginApi = (username, password) => {
     return axios.post('/api/login', 
     { username, password },  {
         headers: { 
@@ -9,11 +9,11 @@ let handleLoginApi = (username, password) => {
     }) 
 } 
 
-let handleRegisterApi = (userData) => {
+const handleRegisterApi = (userData) => {
     return axios.post('/api/register', userData) 
 } 
 
-let handleShowProfile = (token) => {
+const handleShowProfile = (token) => {
     return axios.get('/api/protected/show-profile', {
         headers: {
             'Authorization': 'Bearer ' + token,
@@ -22,7 +22,7 @@ let handleShowProfile = (token) => {
     }) 
 } 
 
-let handleUpdateProfile = (token, data) => {
+const handleUpdateProfile = (token, data) => {
     return axios.put('/api/protected/update-profile', data, {
         headers: {
             'Authorization': 'Bearer ' + token,
@@ -31,19 +31,19 @@ let handleUpdateProfile = (token, data) => {
     }) 
 } 
 
-let handleGetVerifyCode = (username, email) => {
+const handleGetVerifyCode = (username, email) => {
     return axios.post('/api/reset-password/request', { username, email }) 
 } 
 
-let handleCheckVerifyCode = (username, code)  => {
+const handleCheckVerifyCode = (username, code)  => {
     return axios.post('/api/reset-password/enter-code', { username, code })
 }
 
-let handleResetPassword = (username, code, password) => {
+const handleResetPassword = (username, code, password) => {
     return axios.put('/api/reset-password', { username, code, password }) 
 }
 
-let handleChangePassword = (token, oldpassword, newpassword) => {
+const handleChangePassword = (token, oldpassword, newpassword) => {
     return axios.put('/api/protected/change-password', { oldpassword, newpassword },{
         headers: {
             'Authorization': 'Bearer ' + token,
@@ -52,7 +52,7 @@ let handleChangePassword = (token, oldpassword, newpassword) => {
     })
 }
 
-let handleDeleteUserAccount = (token) => {
+const handleDeleteUserAccount = (token) => {
     return axios.delete('/api/protected/delete-account', {
         headers: {
             'Authorization': 'Bearer ' + token,

@@ -1,6 +1,6 @@
 import axios from '../../axios'
 
-let getUsersCreated = () => {
+const getUsersCreated = () => {
     return axios.get('/api/admin/show-client')
 }
 

@@ -4,7 +4,7 @@ import productController from '../controllers/productController'
 import orderController from '../controllers/orderController'
 import clientController from '../controllers/admin/clientController'
 import orderClientController from '../controllers/admin/orderClientController.js'
- 
+
 let router = express.Router()
 
 let initWebRoutes = (app) => { //rest api

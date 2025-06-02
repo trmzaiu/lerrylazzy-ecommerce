@@ -12,7 +12,7 @@ instance.interceptors.response.use(
     },
     (error) => {
         console.error('Error in response:', error);
-        return Promise.reject(error);
+        return Promise.reject(error instanceof Error ? error : new Error(error));
     }
 );
 

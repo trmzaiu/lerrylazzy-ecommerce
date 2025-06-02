@@ -1,10 +1,10 @@
 import favoriteService from '../services/favoriteService'
 
-let handleAddRemoveFavorite = async (req, res) => {
+const handleAddRemoveFavorite = async (req, res) => {
     try {
-        let userid = req.user.userid 
-        let { productid } = req.body
-        let message = await favoriteService.addRemoveFavorite (userid, productid)
+        const userid = req.user.userid 
+        const { productid } = req.body
+        const message = await favoriteService.addRemoveFavorite (userid, productid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling add favorite product request: ', error)
@@ -15,11 +15,11 @@ let handleAddRemoveFavorite = async (req, res) => {
     }
 }
 
-let handleShowFavorite = async (req, res) => {
+const handleShowFavorite = async (req, res) => {
     try {
-        let userid = req.user.userid 
+        const userid = req.user.userid 
         
-        let message = await favoriteService.showFavorite(userid)
+        const message = await favoriteService.showFavorite(userid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show favorite request: ', error)
@@ -30,11 +30,11 @@ let handleShowFavorite = async (req, res) => {
     }
 }
 
-let handleCheckFavorite = async (req, res) => {
+const handleCheckFavorite = async (req, res) => {
     try {
-        let userid = req.user.userid 
-        let { productid } = req.query
-        let message = await favoriteService.checkFavorite(userid, productid)
+        const userid = req.user.userid 
+        const { productid } = req.query
+        const message = await favoriteService.checkFavorite(userid, productid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling check product in favorite request: ', error)

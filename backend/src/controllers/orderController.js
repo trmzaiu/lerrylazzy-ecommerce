@@ -1,14 +1,14 @@
 import orderService from '../services/orderService'
 import cron from 'node-cron'
 
-let handleCreateNewOrder = async(req, res) => {
+const handleCreateNewOrder = async(req, res) => {
     try {
-        let userid = req.user.userid
-        let data = req.body
+        const userid = req.user.userid
+        const data = req.body
 
         console.log(data)
 
-        let message = await orderService.createNewOrder(userid, data)
+        const message = await orderService.createNewOrder(userid, data)
 
         if (message.errCode === 0) {
             return res.status(201).json(message)
@@ -24,12 +24,12 @@ let handleCreateNewOrder = async(req, res) => {
     }
 }
 
-let handleClearCart = async (req, res) => {
+const handleClearCart = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { orderid, note } = req.body
+        const userid = req.user.userid
+        const { orderid, note } = req.body
 
-        let message = await orderService.clearCart(userid, orderid, note)
+        const message = await orderService.clearCart(userid, orderid, note)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling clear cart request: ', error)
@@ -40,12 +40,12 @@ let handleClearCart = async (req, res) => {
     }
 }
 
-let handleShowOrder = async (req, res) => {
+const handleShowOrder = async (req, res) => {
     try {
-        let userid = req.user.userid 
-        let  { orderid } = req.query
+        const userid = req.user.userid 
+        const  { orderid } = req.query
 
-        let message = await orderService.showOrder(userid, orderid)
+        const message = await orderService.showOrder(userid, orderid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show order request: ', error)
@@ -56,12 +56,12 @@ let handleShowOrder = async (req, res) => {
     }
 }
 
-let handleShowOrderItem = async (req, res) => {
+const handleShowOrderItem = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { orderid } = req.query
+        const userid = req.user.userid
+        const { orderid } = req.query
 
-        let message = await orderService.showOrderItem(userid, orderid)
+        const message = await orderService.showOrderItem(userid, orderid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show order item request: ', error)
@@ -72,10 +72,10 @@ let handleShowOrderItem = async (req, res) => {
     }
 }
 
-let handleShowAllOrders = async (req, res) => {
+const handleShowAllOrders = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let message = await orderService.showAllOrders(userid)
+        const userid = req.user.userid
+        const message = await orderService.showAllOrders(userid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show all orders request: ', error)
@@ -86,11 +86,11 @@ let handleShowAllOrders = async (req, res) => {
     }
 }
 
-let handleApplyCoupon = async (req, res) => {
+const handleApplyCoupon = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { code } = req.body
-        let message = await orderService.applyCoupon(userid, code)
+        const userid = req.user.userid
+        const { code } = req.body
+        const message = await orderService.applyCoupon(userid, code)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling apply coupn request: ', error)
@@ -101,11 +101,11 @@ let handleApplyCoupon = async (req, res) => {
     }
 }
 
-let handleUpdateOrderStatus = async () => {
+const handleUpdateOrderStatus = async () => {
     try {
-        let pickupToDelivery = await orderService.updatePickupStatus()
-        let deliveryToDelivered = await orderService.updateDeliveryStatus()
-        let confirmToCancel = await orderService.updateConfirmStatus()
+        const pickupToDelivery = await orderService.updatePickupStatus()
+        const deliveryToDelivered = await orderService.updateDeliveryStatus()
+        const confirmToCancel = await orderService.updateConfirmStatus()
 
         if (pickupToDelivery.errCode !== 0) {
             console.log('Update pending pick up to pending delivery:', pickupToDelivery.errMessage);
@@ -130,12 +130,12 @@ let handleUpdateOrderStatus = async () => {
     }
 }
 
-// Cron job to run every 5 minutes
-cron.schedule('*/10 * * * *', async () => {
-    console.log('Running a task every 5 minutes')
-    let message = await handleUpdateOrderStatus()
-    console.log(message)
-})
+// // Cron job to run every 5 minutes
+// cron.schedule('*/10 * * * *', async () => {
+//     console.log('Running a task every 5 minutes')
+//     const message = await handleUpdateOrderStatus()
+//     console.log(message)
+// })
 
 module.exports = {
     handleCreateNewOrder: handleCreateNewOrder,

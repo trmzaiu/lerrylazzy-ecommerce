@@ -7,15 +7,14 @@ import userController from '../controllers/userController'
 import reviewController from '../controllers/reviewController'
 import authMiddleware from '../middleware/authMiddleware'
 
-
-let protectedRouter = express.Router() 
+let protectedRouter = express.Router()
 
 let protectedRoutes = (app) => {
     // Router for user
-    protectedRouter.get('/profile', authMiddleware.authenticateToken, userController.handleShowProfile) 
-    protectedRouter.get('/show-profile', authMiddleware.authenticateToken, userController.handleShowProfile) 
-    protectedRouter.put('/update-profile', authMiddleware.authenticateToken, userController.handleChangeProfile) 
-    protectedRouter.put('/change-password', authMiddleware.authenticateToken, userController.handleChangePassword) 
+    protectedRouter.get('/profile', authMiddleware.authenticateToken, userController.handleShowProfile)
+    protectedRouter.get('/show-profile', authMiddleware.authenticateToken, userController.handleShowProfile)
+    protectedRouter.put('/update-profile', authMiddleware.authenticateToken, userController.handleChangeProfile)
+    protectedRouter.put('/change-password', authMiddleware.authenticateToken, userController.handleChangePassword)
     protectedRouter.delete('/delete-account', authMiddleware.authenticateToken, userController.handleDeleteAccount)
 
     // Router for cart
@@ -42,10 +41,10 @@ let protectedRoutes = (app) => {
     protectedRouter.get('/show-favorite', authMiddleware.authenticateToken, favoriteController.handleShowFavorite)
     protectedRouter.get('/check-favorite', authMiddleware.authenticateToken, favoriteController.handleCheckFavorite)
 
-    // Router for review 
+    // Router for review
     protectedRouter.post('/create-review', authMiddleware.authenticateToken, reviewController.handlePostReview)
-    
-    return app.use('/api/protected', protectedRouter) 
+
+    return app.use('/api/protected', protectedRouter)
 }
 
 module.exports = protectedRoutes 

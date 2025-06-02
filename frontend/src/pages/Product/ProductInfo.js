@@ -7,7 +7,7 @@ import { getProductById } from '../../services/productService'
 import './Product.scss'
 
 const ProductInfo = () => {
-    const { category, subcategory, productid } = useParams()
+    const { productid } = useParams()
     const [productName, setProductName] = useState('Product')
     const [productCategory, setProductCategory] = useState(null)
     const [productSubcategory, setProductSubcategory] = useState(null)

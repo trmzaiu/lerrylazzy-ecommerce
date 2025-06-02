@@ -1,9 +1,9 @@
 import cartService from '../services/cartService'
 
-let handleAddToCart = async (req, res) => {
+const handleAddToCart = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid } = req.body
+        const userid = req.user.userid
+        const { productid } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -12,7 +12,7 @@ let handleAddToCart = async (req, res) => {
             })
         }
 
-        let message = await cartService.addProductToCart(userid, productid)
+        const message = await cartService.addProductToCart(userid, productid)
         return res.status(200).json(message)
         
     } catch (error) {
@@ -24,9 +24,9 @@ let handleAddToCart = async (req, res) => {
     }
 }
 
-let handleShowCart = async (req, res) => {
+const handleShowCart = async (req, res) => {
     try {
-        let userid = req.user.userid
+        const userid = req.user.userid
 
         if (!userid) {
             return res.status(401).json({
@@ -35,7 +35,7 @@ let handleShowCart = async (req, res) => {
             })
         }
         
-        let message = await cartService.showCart(userid)
+        const message = await cartService.showCart(userid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling show cart request: ', error)
@@ -46,10 +46,10 @@ let handleShowCart = async (req, res) => {
     }
 }
 
-let handleRemoveFromCart = async (req, res) => {
+const handleRemoveFromCart = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid } = req.body
+        const userid = req.user.userid
+        const { productid } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -58,10 +58,10 @@ let handleRemoveFromCart = async (req, res) => {
             })
         }
 
-        let message = await cartService.removeProductFromCart(userid, productid)
+        const message = await cartService.removeProductFromCart(userid, productid)
         return res.status(200).json(message)
     } catch (error) {
-        console.error('Error handling delete from cart request: ', error)
+        console.error('Error handling deconste from cart request: ', error)
         return res.status(500).json({
             errCode: -1,
             message: 'An internal server error occurred.'
@@ -69,10 +69,10 @@ let handleRemoveFromCart = async (req, res) => {
     }
 }
 
-let handleIncreaseQuantity = async (req, res) => {
+const handleIncreaseQuantity = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid } = req.body
+        const userid = req.user.userid
+        const { productid } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -81,7 +81,7 @@ let handleIncreaseQuantity = async (req, res) => {
             })
         }
 
-        let message = await cartService.increaseQuantity(userid, productid)
+        const message = await cartService.increaseQuantity(userid, productid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling increase quantity request: ', error)
@@ -92,10 +92,10 @@ let handleIncreaseQuantity = async (req, res) => {
     }
 }
 
-let handleDecreaseQuantity = async (req, res) => {
+const handleDecreaseQuantity = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid } = req.body
+        const userid = req.user.userid
+        const { productid } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -104,7 +104,7 @@ let handleDecreaseQuantity = async (req, res) => {
             })
         }
 
-        let message = await cartService.decreaseQuantity(userid, productid)
+        const message = await cartService.decreaseQuantity(userid, productid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling decrease quantity request: ', error)
@@ -115,10 +115,10 @@ let handleDecreaseQuantity = async (req, res) => {
     }
 }
 
-let handleAddLargeQuantity = async (req, res) => {
+const handleAddLargeQuantity = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid, quantity } = req.body
+        const userid = req.user.userid
+        const { productid, quantity } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -127,7 +127,7 @@ let handleAddLargeQuantity = async (req, res) => {
             })
         }
 
-        let message = await cartService.addLargeQuantity(userid, productid, quantity)
+        const message = await cartService.addLargeQuantity(userid, productid, quantity)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling add large quantity request: ', error)
@@ -138,10 +138,10 @@ let handleAddLargeQuantity = async (req, res) => {
     }
 }
 
-let handleUpdateQuantity = async (req, res) => {
+const handleUpdateQuantity = async (req, res) => {
     try {
-        let userid = req.user.userid
-        let { productid, quantity } = req.body
+        const userid = req.user.userid
+        const { productid, quantity } = req.body
 
         if (!userid) {
             return res.status(401).json({
@@ -150,7 +150,7 @@ let handleUpdateQuantity = async (req, res) => {
             })
         }
 
-        let message = await cartService.updateQuantity(userid, productid, quantity)
+        const message = await cartService.updateQuantity(userid, productid, quantity)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling update quantity request: ', error)
@@ -161,9 +161,9 @@ let handleUpdateQuantity = async (req, res) => {
     }
 }
 
-let handleRemoveAllProduct = async (req, res) => {
+const handleRemoveAllProduct = async (req, res) => {
     try {
-        let userid = req.user.userid
+        const userid = req.user.userid
 
         if (!userid) {
             return res.status(401).json({
@@ -172,16 +172,16 @@ let handleRemoveAllProduct = async (req, res) => {
             })
         }
         
-        let message = await cartService.removeAllProduct(userid)
+        const message = await cartService.removeAllProduct(userid)
         return res.status(200).json(message)
     } catch (error) {
 
     }
 }
 
-let handleGetTotalQuantity = async (req, res) => {
+const handleGetTotalQuantity = async (req, res) => {
     try {
-        let userid = req.user.userid
+        const userid = req.user.userid
         if (!userid) {
             return res.status(401).json({
                 errCode: 1,
@@ -189,7 +189,7 @@ let handleGetTotalQuantity = async (req, res) => {
             })
         }
 
-        let message = await cartService.getTotalQuantity(userid)
+        const message = await cartService.getTotalQuantity(userid)
         return res.status(200).json(message)
     } catch (error) {
         console.error('Error handling get total quantity request: ', error)

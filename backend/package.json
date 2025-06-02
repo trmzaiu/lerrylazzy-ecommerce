@@ -27,6 +27,7 @@
     "node-cron": "^3.0.3",
     "nodemailer": "6.9.13",
     "passport": "^0.7.0",
+    "pg": "^8.16.0",
     "react-spinners": "^0.13.8",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",

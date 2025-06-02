@@ -1,10 +1,10 @@
 import clientService from '../../services/admin/clientService'
 
-let countUsersCreated = async (req, res) => {
+const countUsersCreated = async (req, res) => {
     try {
-        let todayCount = await clientService.countUsersCreatedToday()
-        let monthlyCount = await clientService.countUsersCreatedThisMonth()
-        let totalCount = await clientService.getAllUsersAndCount()
+        const todayCount = await clientService.countUsersCreatedToday()
+        const monthlyCount = await clientService.countUsersCreatedThisMonth()
+        const totalCount = await clientService.getAllUsersAndCount()
 
         return res.status(200).json({
             todayCount,
