@@ -23,7 +23,7 @@ LerryLazzy is an online yarn store where users can explore and purchase a wide v
 
 - **Frontend**: ReactJS
 - **Backend**: Node.js + Express
-- **Database**: SQLServer
+- **Database**: PostgreSQL
 - **Authentication**: JWT
 - **Hosting & Deployment**: Vercel
 
@@ -40,7 +40,7 @@ cd lerrylazzy-ecommerce
 cd backend
 npm install
 
-# Configure Sequelize for SQL Server
+# Configure Sequelize for PostgreSQL
 # (Make sure to set up your .env file with DB credentials)
 npx sequelize-cli db:create
 npx sequelize-cli db:migrate
