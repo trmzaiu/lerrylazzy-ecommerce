@@ -3,7 +3,7 @@
 LerryLazzy is an online yarn store where users can explore and purchase a wide variety of high-quality yarns for knitting, crocheting, and other crafts.
 
 ## 🌐 Live Demo
-[👉 Visit Website]([https://wad-project-lerrylazzy.vercel.app])
+[👉 Visit Website] [https://wad-project-lerrylazzy.vercel.app](https://wad-project-lerrylazzy.vercel.app)
 
 ---
 
@@ -33,14 +33,21 @@ LerryLazzy is an online yarn store where users can explore and purchase a wide v
 
 ```bash
 # Clone the project
-git clone github.com/trmzaiu/wad-project-lerrylazzy.git
+git clone github.com/trmzaiu/lerrylazzy-ecommerce.git
+cd lerrylazzy-ecommerce
 
 # Install backend dependencies
 cd backend
 npm install
 
+# Configure Sequelize for SQL Server
+# (Make sure to set up your .env file with DB credentials)
+npx sequelize-cli db:create
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+
 # Install frontend dependencies
-cd ../frontend
+cd frontend
 npm install
 
 # Go back to root directory
@@ -49,6 +56,6 @@ cd ../
 # Install root dependencies (if using root-level tools like concurrently)
 npm install
 
-# Start the app (runs both frontend & backend if configured via script)
+# Start the app (runs both frontend & backend)
 npm run start
 
