@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa'
 import { FaAngleRight } from 'react-icons/fa6'
 import { Link, useParams } from 'react-router-dom'
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 import { handleShowProductDetail, handleUserAddLargeItem } from '../../services/cartService'
 import { handleShowOrder, handleShowOrderItem } from '../../services/orderService'
 import { handleCreateReview } from '../../services/reviewService'

@@ -6,7 +6,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 import { Link} from 'react-router-dom'
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 import { handleUserAddToCart } from '../../services/cartService'
 import { handleAddRemoveFavorite, handleCheckFavorite } from '../../services/favoriteService'
 import { getNewProduct } from '../../services/productService'

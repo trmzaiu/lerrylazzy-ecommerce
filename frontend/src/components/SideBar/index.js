@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { LuCreditCard, LuHeart, LuShoppingBag, LuStar, LuUser, LuBell, LuBadgeHelp, LuBadgeInfo, LuLogOut, LuMapPin } from 'react-icons/lu'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import './SideBar.scss'
 
 const SideBar = () => {

@@ -9,7 +9,7 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa'
 import { IoMdHeart, IoMdHeartEmpty } from 'react-icons/io'
 import { LuCheckCircle, LuChevronRight, LuCornerDownRight, LuPackageX, LuPenLine } from 'react-icons/lu'
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 import { handleUserAddLargeItem } from '../../services/cartService'
 import { handleAddRemoveFavorite, handleCheckFavorite } from '../../services/favoriteService'
 import { getAllReviews, getProductById } from '../../services/productService'

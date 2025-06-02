@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@popperjs/core": "^2.11.8",
     "@primer/octicons-react": "^19.9.0",
+    "@tailwindcss/cli": "^4.1.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -64,7 +65,10 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
-    "expose-loader": "^5.0.0"
+    "expose-loader": "^5.0.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
   }
 }

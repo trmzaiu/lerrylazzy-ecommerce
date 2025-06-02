@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import { Link, useParams } from 'react-router-dom'
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 import { handleUserAddToCart } from '../../services/cartService'
 import { handleAddRemoveFavorite, handleCheckFavorite } from '../../services/favoriteService'
 import { getProductsByCategory, getProductsBySubcategory } from '../../services/productService'

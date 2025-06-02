@@ -6,7 +6,7 @@ import { FaAngleRight } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 import {
     handleShowProductDetail,
     handleUserDecreaseItem,

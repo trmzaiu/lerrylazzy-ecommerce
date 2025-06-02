@@ -8,7 +8,7 @@ import { CiCalendar } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
 
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import { handleDeleteUserAccount, handleShowProfile, handleUpdateProfile } from '../../services/userService'
 
 import Footer from '../../components/Footer'
