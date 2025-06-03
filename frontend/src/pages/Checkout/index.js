@@ -1,14 +1,13 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Checkout from '../../components/Checkout'
 import Footer from '../../components/Footer'
 import FooterCart from '../../components/FooterCart'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 
 const CheckoutPage = () => {
-    return(
+    return (
         <div>
-            <NavBar/>
+            <NavBar />
             <div className='container'>
                 <nav aria-label='breadcrumb'>
                     <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -20,10 +19,10 @@ const CheckoutPage = () => {
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Check Out</h1>
                 </div>
-                <Checkout/>
+                <Checkout />
             </div>
-            <FooterCart/>
-            <Footer/>
+            <FooterCart />
+            <Footer />
         </div>
     )
 }

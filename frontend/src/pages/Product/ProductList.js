@@ -1,18 +1,18 @@
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../contexts/CartContext'
 import { useSearch } from '../../contexts/SearchContext'
 
+import Cookies from 'js-cookie'
 import { handleUserAddToCart } from '../../services/cartService'
 import { handleAddRemoveFavorite } from '../../services/favoriteService'
 import { getProductByKeyword } from '../../services/productService'
-import Cookies from 'js-cookie'
 
 import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../../components/Footer'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import NotFound from '../../components/NotFound'
 
 
@@ -69,7 +69,7 @@ const ProductList = () => {
             }
 
             await handleUserAddToCart(token, id)
-            
+
             alert('Added product to cart successfully')
             updateCartQuantity()
         } catch (error) {
@@ -121,10 +121,10 @@ const ProductList = () => {
         )
     }
 
-    
+
 
     if (error) {
-        return <div><NotFound/></div>
+        return <div><NotFound /></div>
     }
 
     return (
@@ -145,7 +145,7 @@ const ProductList = () => {
                                             <FontAwesomeIcon icon={faShoppingCart} className='mx-2' />
                                         </Link>
                                         <Link className={`${product.isFavorite ? 'i-heart-favo' : 'i-heart'}`} onClick={() => handleToggleFavorite(product.ProductID)}>
-                                            <FontAwesomeIcon icon={faHeart} className='mx-2'/>
+                                            <FontAwesomeIcon icon={faHeart} className='mx-2' />
                                         </Link>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ const ProductList = () => {
                         </div>
                     ))}
                 </div>
-            </div>    
+            </div>
             <Footer />
         </div>
     )

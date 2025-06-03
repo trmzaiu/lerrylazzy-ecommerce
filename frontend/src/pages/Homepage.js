@@ -1,10 +1,9 @@
-import React from 'react'
 
 import Banner from '../components/Banner'
 import Footer from '../components/Footer'
 import HotItem from '../components/Item/HotItem'
-import NavBar from '../components/NavBar'
 import NewItem from '../components/Item/NewItem'
+import NavBar from '../components/Navbar'
 
 const Home = () => {
     return (

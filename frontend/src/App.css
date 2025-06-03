@@ -1,4 +1,10 @@
-@import "tailwindcss";
+.text-color {
+    color: #3D3D3D;
+}
+
+.header-color {
+    color: #7A4E3A;
+}
 
 .App {
     padding: 0;

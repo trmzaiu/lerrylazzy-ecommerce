@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import ItemDetail from '../../components/ItemDetail'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import { getProductById } from '../../services/productService'
 import './Product.scss'
 
@@ -61,7 +61,7 @@ const ProductInfo = () => {
                 </nav>
             </div>
             <div className='container my-5'>
-                <ItemDetail productid={productid}/>  
+                <ItemDetail productid={productid} />
             </div>
             <Footer />
         </div>

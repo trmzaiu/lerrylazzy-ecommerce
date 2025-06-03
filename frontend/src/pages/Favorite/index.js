@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 import { Link } from 'react-router-dom'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import SideBar from '../../components/SideBar'
 
+import Cookies from 'js-cookie'
 import { AuthContext } from '../../contexts/AuthContext'
 import { CartContext } from '../../contexts/CartContext'
 import { handleShowProductDetail, handleUserAddToCart } from '../../services/cartService'
 import { handleShowFavorite } from '../../services/favoriteService'
-import Cookies from 'js-cookie'
 
 import NotFound from '../../components/NotFound'
 import './Favorite.scss'
@@ -38,10 +38,10 @@ const Favorite = () => {
                     const product = await handleShowProductDetail(item.ProductID)
                     return product
                 })
-                
+
                 const detailedProducts = await Promise.all(detailsPromises)
                 setProducts(detailedProducts)
-                
+
                 setLoading(false)
             } catch (error) {
                 console.error('Error fetching products: ', error)
@@ -65,7 +65,7 @@ const Favorite = () => {
                 return
             }
             await handleUserAddToCart(token, productid)
-            
+
             alert('Added product to cart successfully')
             updateCartQuantity()
         } catch (error) {
@@ -76,7 +76,7 @@ const Favorite = () => {
     if (loading) {
         return (
             <div>
-                <NavBar/>
+                <NavBar />
                 <div className='container'>
                     <nav aria-label='breadcrumb'>
                         <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -87,11 +87,11 @@ const Favorite = () => {
                 </div>
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Your Account</h1>
-                </div> 
+                </div>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-3 col-lg-4 mb-5'>
-                            <SideBar/>
+                            <SideBar />
                         </div>
                         <div className='col-lg-8 col-xl-9 d-flex align-items-center justify-content-center'>
                             <Spinner animation='border' role='status'>
@@ -100,7 +100,7 @@ const Favorite = () => {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }
@@ -108,7 +108,7 @@ const Favorite = () => {
     if (error) {
         return (
             <div>
-                <NavBar/>
+                <NavBar />
                 <div className='container'>
                     <nav aria-label='breadcrumb'>
                         <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -120,25 +120,25 @@ const Favorite = () => {
                 </div>
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Your Favorites</h1>
-                </div> 
+                </div>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-3 col-lg-4 mb-5'>
-                            <SideBar/>
+                            <SideBar />
                         </div>
                         <div className='col-lg-8 col-xl-9 align-middle'>
-                            <NotFound/>
+                            <NotFound />
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }
 
     return (
         <div>
-            <NavBar/>
+            <NavBar />
             <div className='container'>
                 <nav aria-label='breadcrumb'>
                     <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -150,11 +150,11 @@ const Favorite = () => {
             </div>
             <div className='hero-content pb-4 text-center'>
                 <h1 className='hero-heading'>Your Favorites</h1>
-            </div> 
+            </div>
             <div className='container'>
                 <div className='row'>
                     <div className='col-xl-3 col-lg-4 mb-5'>
-                        <SideBar/>
+                        <SideBar />
                     </div>
                     <div className='col-lg-8 col-xl-9 align-middle'>
                         <div className='cart-header tex-center'>
@@ -197,7 +197,7 @@ const Favorite = () => {
                                                         {product.Price.toLocaleString('vi-VN')} đ
                                                     </div>
                                                     <div className='col-md-4 text-center'>
-                                                        <label className={`fw-bold ${product.InStock !== 0 ? 'text-dark' : 'text-danger' }`}>{(product.InStock !== 0) ? 'In Stock' : 'Out of Stock'}</label>
+                                                        <label className={`fw-bold ${product.InStock !== 0 ? 'text-dark' : 'text-danger'}`}>{(product.InStock !== 0) ? 'In Stock' : 'Out of Stock'}</label>
                                                     </div>
                                                     <div className='col-md-4 text-center'>
                                                         <button className='btn btn-sm btn-dark btn-cart' onClick={() => handleAddToCart(product.ProductID)}>
@@ -214,7 +214,7 @@ const Favorite = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

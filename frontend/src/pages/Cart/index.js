@@ -1,17 +1,16 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 import CartItem from '../../components/CartItem'
 import Footer from '../../components/Footer'
 import FooterCart from '../../components/FooterCart'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 
 import './Cart.scss'
 
 const Cart = () => {
-    return(
+    return (
         <div>
-            <NavBar/>
+            <NavBar />
             <div className='container'>
                 <nav aria-label='breadcrumb'>
                     <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -23,9 +22,9 @@ const Cart = () => {
                     <h1 className='hero-heading'>Shopping Cart</h1>
                 </div>
             </div>
-            <CartItem/>
-            <FooterCart/>
-            <Footer/>
+            <CartItem />
+            <FooterCart />
+            <Footer />
         </div>
     )
 }

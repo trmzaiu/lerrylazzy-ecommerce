@@ -1,25 +1,25 @@
 import { useContext, useEffect, useState } from 'react'
 
 import { format } from 'date-fns'
+import Cookies from 'js-cookie'
 import { Button, Modal } from 'react-bootstrap'
 import Spinner from 'react-bootstrap/Spinner'
 import Flatpickr from 'react-flatpickr'
 import { CiCalendar } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
-import Cookies from 'js-cookie'
 
 import { AuthContext } from '../../contexts/AuthContext'
 import { handleDeleteUserAccount, handleShowProfile, handleUpdateProfile } from '../../services/userService'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import NotFound from '../../components/NotFound'
 import SideBar from '../../components/SideBar'
 import './Profile.scss'
 
 const Profile = () => {
     const { isAuthenticated, logout } = useContext(AuthContext)
-    
+
     const [profile, setProfile] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -50,18 +50,18 @@ const Profile = () => {
                 }
             } catch (error) {
                 if (!ignore) {
-                    setError(error) 
+                    setError(error)
                     console.error('Error fetching profile:', error)
                 }
             } finally {
                 if (!ignore) {
-                    setLoading(false) 
+                    setLoading(false)
                 }
             }
         }
         fetchData()
         return () => {
-            ignore = true 
+            ignore = true
         }
     }, [isAuthenticated.token])
 
@@ -81,7 +81,7 @@ const Profile = () => {
             await handleUpdateProfile(token, profile)
 
             const responseShow = await handleShowProfile(token)
-        
+
             setProfile(responseShow.user)
         } catch (error) {
             console.error('Error updating profile:', error)
@@ -117,7 +117,7 @@ const Profile = () => {
 
     const handleSubmitPassword = async (event) => {
         event.preventDefault()
-        
+
         if (currentPassword.trim() === '') {
             setCurrPassValid(false)
             setErrCurrPass('Please enter your current password')
@@ -184,7 +184,7 @@ const Profile = () => {
     if (loading) {
         return (
             <div>
-                <NavBar/>
+                <NavBar />
                 <div className='container'>
                     <nav aria-label='breadcrumb'>
                         <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -195,11 +195,11 @@ const Profile = () => {
                 </div>
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Your Account</h1>
-                </div> 
+                </div>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-3 col-lg-4 mb-5'>
-                            <SideBar/>
+                            <SideBar />
                         </div>
                         <div className='col-lg-8 col-xl-9 d-flex align-items-center justify-content-center'>
                             <Spinner animation='border' role='status'>
@@ -208,7 +208,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }
@@ -216,7 +216,7 @@ const Profile = () => {
     if (error) {
         return (
             <div>
-                <NavBar/>
+                <NavBar />
                 <div className='container'>
                     <nav aria-label='breadcrumb'>
                         <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -227,25 +227,25 @@ const Profile = () => {
                 </div>
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Your Account</h1>
-                </div> 
+                </div>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-xl-3 col-lg-4 mb-5'>
-                            <SideBar/>
+                            <SideBar />
                         </div>
                         <div className='col-lg-8 col-xl-9 d-flex align-items-center justify-content-center'>
-                            <NotFound/>
+                            <NotFound />
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }
 
     return (
         <div>
-            <NavBar/>
+            <NavBar />
             <div className='container'>
                 <nav aria-label='breadcrumb'>
                     <ol className='breadcrumb justify-content-start no-border my-4'>
@@ -256,12 +256,12 @@ const Profile = () => {
                 </nav>
                 <div className='hero-content pb-4 text-center'>
                     <h1 className='hero-heading'>Your Account</h1>
-                </div> 
+                </div>
             </div>
             <div className='container'>
                 <div className='row'>
                     <div className='col-xl-3 col-lg-4 mb-5'>
-                        <SideBar/>
+                        <SideBar />
                     </div>
                     <div className='col-lg-8 col-xl-9'>
                         <div className='cart-header'>Your Profile</div>
@@ -284,13 +284,13 @@ const Profile = () => {
                                             <div className='col-sm-6'>
                                                 <label htmlFor='fn1' className='form-label ms-2'>Firstname</label>
                                                 <div className='position-relative'>
-                                                    <input type='text' className='form-control' id='fn1' name='Firstname' value={profile?.Firstname || ''} onChange={handleChange}/>
+                                                    <input type='text' className='form-control' id='fn1' name='Firstname' value={profile?.Firstname || ''} onChange={handleChange} />
                                                 </div>
                                             </div>
                                             <div className='col-sm-6'>
                                                 <label htmlFor='fn2' className='form-label ms-2'>Lastname</label>
                                                 <div className='position-relative'>
-                                                    <input type='text' className='form-control' id='fn2' name='Lastname' value={profile?.Lastname || ''} onChange={handleChange}/>
+                                                    <input type='text' className='form-control' id='fn2' name='Lastname' value={profile?.Lastname || ''} onChange={handleChange} />
                                                 </div>
                                             </div>
                                             <div className='col-sm-6'>
@@ -313,13 +313,13 @@ const Profile = () => {
                                                         }}
                                                         placeholder='Choose date'
                                                     />
-                                                    <CiCalendar className='position-absolute top-50 end-0 translate-middle-y me-3 h4'/>
+                                                    <CiCalendar className='position-absolute top-50 end-0 translate-middle-y me-3 h4' />
                                                 </div>
                                             </div>
                                             <div className='col-sm-6'>
                                                 <label htmlFor='address' className='form-label ms-2'>Address</label>
                                                 <div className='position-relative'>
-                                                    <input type='text' className='form-control' id='address' name='Address' value={profile.Address || ''} onChange={handleChange}/>
+                                                    <input type='text' className='form-control' id='address' name='Address' value={profile.Address || ''} onChange={handleChange} />
                                                 </div>
                                             </div>
                                             <div className='col-12'>
@@ -349,13 +349,13 @@ const Profile = () => {
                                             <div className='col-sm-6'>
                                                 <label htmlFor='email' className='form-label ms-2'>Email</label>
                                                 <div className='position-relative'>
-                                                    <input type='text' className='form-control' id='email' name='Email' value={profile.Email || ''} onChange={handleChange}/>
+                                                    <input type='text' className='form-control' id='email' name='Email' value={profile.Email || ''} onChange={handleChange} />
                                                 </div>
                                             </div>
                                             <div className='col-sm-6'>
                                                 <label htmlFor='phone' className='form-label ms-2'>Phone number</label>
                                                 <div className='position-relative'>
-                                                    <input type='text' className='form-control' id='phone' name='Phone' value={profile.Phone || ''} onChange={handleChange}/>
+                                                    <input type='text' className='form-control' id='phone' name='Phone' value={profile.Phone || ''} onChange={handleChange} />
                                                 </div>
                                             </div>
                                             <div className='col-12'>
@@ -384,12 +384,12 @@ const Profile = () => {
                                             <div className='col-sm-4'>
                                                 <label htmlFor='currentPassword' className='form-label ms-2'>Current password</label>
                                                 <div className='position-relative'>
-                                                    <input 
-                                                        type="password" 
-                                                        className={`form-control ${!currPassValid ? 'is-invalid' : ''}`} 
-                                                        id="currentPassword" 
-                                                        name="currentPassword" 
-                                                        value={currentPassword} 
+                                                    <input
+                                                        type="password"
+                                                        className={`form-control ${!currPassValid ? 'is-invalid' : ''}`}
+                                                        id="currentPassword"
+                                                        name="currentPassword"
+                                                        value={currentPassword}
                                                         onChange={handleChangePassword}
                                                     />
                                                     <div className="invalid-feedback">
@@ -400,12 +400,12 @@ const Profile = () => {
                                             <div className='col-sm-4'>
                                                 <label htmlFor='newPassword' className='form-label ms-2'>New password</label>
                                                 <div className='position-relative'>
-                                                    <input 
-                                                        type="password" 
-                                                        className={`form-control ${!newPassValid ? 'is-invalid' : ''}`} 
-                                                        id="newPassword" 
-                                                        name="newPassword"  
-                                                        value={newPassword} 
+                                                    <input
+                                                        type="password"
+                                                        className={`form-control ${!newPassValid ? 'is-invalid' : ''}`}
+                                                        id="newPassword"
+                                                        name="newPassword"
+                                                        value={newPassword}
                                                         onChange={handleChangePassword}
                                                     />
                                                     <div className="invalid-feedback">
@@ -416,12 +416,12 @@ const Profile = () => {
                                             <div className='col-sm-4'>
                                                 <label htmlFor='confirmPassword' className='form-label ms-2'>Confirm new password</label>
                                                 <div className='position-relative'>
-                                                    <input 
-                                                        type="password" 
-                                                        className={`form-control ${!confPassValid ? 'is-invalid' : ''}`} 
-                                                        id="confirmPassword" 
-                                                        name="confirmPassword" 
-                                                        value={confirmPassword} 
+                                                    <input
+                                                        type="password"
+                                                        className={`form-control ${!confPassValid ? 'is-invalid' : ''}`}
+                                                        id="confirmPassword"
+                                                        name="confirmPassword"
+                                                        value={confirmPassword}
                                                         onChange={handleChangePassword}
                                                     />
                                                     <div className="invalid-feedback">
@@ -440,13 +440,13 @@ const Profile = () => {
                                 </div>
                             </div>
                             {profile.Role === 'customer' && (
-                            <div className='pt-3 mt-2 mt-sm-3 mb-5 pb-4'>
-                                <h2 className='h6'>Delete account</h2>
-                                <p className='fs-sm mt-4 blockquote-footer'>
-                                    When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we'll send you a link to reactivate your account.
-                                </p>
-                                <a className='text-danger fs-sm fw-medium text-decoration-none delete' type='button' onClick={() => setShowModal(true)}>Delete account</a>
-                            </div>
+                                <div className='pt-3 mt-2 mt-sm-3 mb-5 pb-4'>
+                                    <h2 className='h6'>Delete account</h2>
+                                    <p className='fs-sm mt-4 blockquote-footer'>
+                                        When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we'll send you a link to reactivate your account.
+                                    </p>
+                                    <a className='text-danger fs-sm fw-medium text-decoration-none delete' type='button' onClick={() => setShowModal(true)}>Delete account</a>
+                                </div>
                             )}
                         </div>
                     </div>
@@ -468,7 +468,7 @@ const Profile = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <Footer/>
+            <Footer />
         </div>
     )
 

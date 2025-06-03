@@ -1,18 +1,17 @@
-import React from 'react'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import OrderComplete from '../../components/Order/OrderComplete'
 
 const OrderCompletePage = () => {
 
-    return (
-      <div>
-          <NavBar/>
-          <OrderComplete/>
-          <Footer/>
-      </div>
-    )
+  return (
+    <div>
+      <NavBar />
+      <OrderComplete />
+      <Footer />
+    </div>
+  )
 }
 
 export default OrderCompletePage

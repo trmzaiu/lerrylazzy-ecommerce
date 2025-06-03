@@ -1,18 +1,17 @@
-import React from 'react'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import OrderDetail from '../../components/Order/OrderDetail'
 
 const OrderInfo = () => {
 
     return (
         <div>
-            <NavBar/>
+            <NavBar />
             <div className='container my-5 py-5'>
-                <OrderDetail/>
+                <OrderDetail />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

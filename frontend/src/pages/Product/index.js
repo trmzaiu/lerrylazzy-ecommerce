@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import Item from '../../components/Item'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/Navbar'
 import './Product.scss'
 
 const categoryMap = {
@@ -53,7 +53,7 @@ const Product = () => {
                 <h1 className='hero-heading'>
                     {subcategory ? (subcategory.charAt(0).toUpperCase() + subcategory.slice(1)) : (category ? (category.charAt(0).toUpperCase() + category.slice(1)) : 'Product')}
                 </h1>
-            </div> 
+            </div>
             <div className='container mb-5'>
                 {categoryid && <Item categoryid={categoryid} />}
                 {subcategoryid && <Item subcategoryid={subcategoryid} />}
