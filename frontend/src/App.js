@@ -29,7 +29,6 @@ import './App.css'
 import ProductAdmin from './pages/Admin/Product'
 import NotFoundPage from './pages/NotFound'
 
-
 function App() {
     return (
         <div className='outfit text-brown bg-img'>
@@ -44,20 +43,20 @@ function App() {
                                 <Route path='/register' element={<Register />} />
                                 <Route path='/product/:category' element={<Product />} />
                                 <Route path='/product/product/:subcategory' element={<Product />} />
-                                <Route path='/product/detail/:productid' element={<ProductInfo />} />                            
+                                <Route path='/product/detail/:productid' element={<ProductInfo />} />
                                 <Route path='/home' element={<PrivateRoute><Home /></PrivateRoute>} />
-                                <Route path='/order' element={<PrivateRoute><Order/></PrivateRoute>} />
-                                <Route path='/favorite' element={<PrivateRoute><Favorite/></PrivateRoute>} />
-                                <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute>} />
-                                <Route path='/profile/:username'element={<PrivateRoute><Profile/></PrivateRoute>} />
-                                <Route path='/notification' element={<PrivateRoute><Notification/></PrivateRoute>} />
-                                <Route path='/checkout' element={<PrivateRoute><CheckoutPage/></PrivateRoute>}/>
-                                <Route path='/order-complete' element={<PrivateRoute><OrderCompletePage/></PrivateRoute>}/>
-                                <Route path='/order/detail/:orderid' element={<PrivateRoute><OrderInfo/></PrivateRoute>}/>
+                                <Route path='/order' element={<PrivateRoute><Order /></PrivateRoute>} />
+                                <Route path='/favorite' element={<PrivateRoute><Favorite /></PrivateRoute>} />
+                                <Route path='/cart' element={<PrivateRoute><Cart /></PrivateRoute>} />
+                                <Route path='/profile/:username' element={<PrivateRoute><Profile /></PrivateRoute>} />
+                                <Route path='/notification' element={<PrivateRoute><Notification /></PrivateRoute>} />
+                                <Route path='/checkout' element={<PrivateRoute><CheckoutPage /></PrivateRoute>} />
+                                <Route path='/order-complete' element={<PrivateRoute><OrderCompletePage /></PrivateRoute>} />
+                                <Route path='/order/detail/:orderid' element={<PrivateRoute><OrderInfo /></PrivateRoute>} />
                                 <Route path='/coming-soon' element={<ComingSoonPage />} />
                                 <Route path='/product/search' element={<ProductList />} />
-                                <Route path='/admin' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-                                <Route path='/admin/products' element={<PrivateRoute><ProductAdmin/></PrivateRoute>}/>
+                                <Route path='/admin' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                                <Route path='/admin/products' element={<PrivateRoute><ProductAdmin /></PrivateRoute>} />
                                 <Route path='/notfound' element={<NotFoundPage />} />
                             </Routes>
                         </BrowserRouter>

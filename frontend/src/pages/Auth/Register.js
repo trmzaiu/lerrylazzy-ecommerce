@@ -26,7 +26,7 @@ const Register = () => {
     const [errConfPass, setErrConfPass] = useState('')
 
     const { login } = useContext(AuthContext)
-    
+
     const handleRegister = async (event) => {
         event.preventDefault()
 
@@ -89,7 +89,7 @@ const Register = () => {
         try {
             let response = await handleRegisterApi(userData)
             console.log(response)
-            
+
             if (response && response.errCode === 1) {
                 setUsernameValid(false)
                 setErrUsername(response.errMessage)
@@ -162,13 +162,13 @@ const Register = () => {
 
                                     <form onSubmit={handleRegister}>
                                         <div className="form-floating mb-3">
-                                            <input 
-                                                type="text" 
-                                                id="typeUsername" 
-                                                name="username" 
-                                                placeholder="Username" 
+                                            <input
+                                                type="text"
+                                                id="typeUsername"
+                                                name="username"
+                                                placeholder="Username"
                                                 className={`form-control form-control-lg input ${(!usernameValid ? 'is-invalid' : '')}`}
-                                                value={username} 
+                                                value={username}
                                                 onChange={handleOnChangeInput}
                                             />
                                             <label htmlFor="typeUsername">Username</label>
@@ -180,14 +180,14 @@ const Register = () => {
                                         <div className="row position-relative mb-3">
                                             <div className='col-md-6'>
                                                 <div className="form-floating">
-                                                    <input 
-                                                        type="text" 
-                                                        id="typeFirstname" 
-                                                        name="firstname" 
-                                                        placeholder="First name" 
+                                                    <input
+                                                        type="text"
+                                                        id="typeFirstname"
+                                                        name="firstname"
+                                                        placeholder="First name"
                                                         className={`form-control form-control-lg input ${(!fullnameValid ? 'is-invalid' : '')}`}
-                                                        value={firstname} 
-                                                        onChange={handleOnChangeInput} 
+                                                        value={firstname}
+                                                        onChange={handleOnChangeInput}
                                                     />
                                                     <label htmlFor="typeFirstname">First name</label>
                                                 </div>
@@ -195,14 +195,14 @@ const Register = () => {
 
                                             <div className='col-md-6'>
                                                 <div className='form-floating'>
-                                                    <input 
-                                                        type="text" 
-                                                        id="typeLastname" 
-                                                        name="lastname" 
-                                                        placeholder="Last name" 
+                                                    <input
+                                                        type="text"
+                                                        id="typeLastname"
+                                                        name="lastname"
+                                                        placeholder="Last name"
                                                         className={`form-control form-control-lg input ${(!fullnameValid ? 'is-invalid' : '')}`}
-                                                        value={lastname} 
-                                                        onChange={handleOnChangeInput} 
+                                                        value={lastname}
+                                                        onChange={handleOnChangeInput}
                                                     />
                                                     <label htmlFor="typeLastname">Last name</label>
                                                 </div>
@@ -213,13 +213,13 @@ const Register = () => {
                                         </div>
 
                                         <div className="form-floating mb-3">
-                                            <input 
-                                                type="email" 
+                                            <input
+                                                type="email"
                                                 id="typeEmail"
                                                 name="email"
-                                                placeholder="Email" 
-                                                value={email} 
-                                                onChange={handleOnChangeInput} 
+                                                placeholder="Email"
+                                                value={email}
+                                                onChange={handleOnChangeInput}
                                                 className={`form-control form-control-lg input ${(!emailValid ? 'is-invalid' : '')}`}
                                             />
                                             <label htmlFor="typeEmail">Email</label>
@@ -229,14 +229,14 @@ const Register = () => {
                                         </div>
 
                                         <div className="form-floating mb-3">
-                                            <input 
+                                            <input
                                                 type="password"
-                                                id="typePassword" 
+                                                id="typePassword"
                                                 name="password"
                                                 placeholder="Password"
-                                                value={password} 
+                                                value={password}
                                                 className={`form-control form-control-lg input ${(!passwordValid ? 'is-invalid' : '')}`}
-                                                onChange={handleOnChangeInput} 
+                                                onChange={handleOnChangeInput}
                                             />
                                             <label htmlFor="typePpassword">Password</label>
                                             <div className="error-message">
@@ -245,35 +245,35 @@ const Register = () => {
                                         </div>
 
                                         <div className="form-floating mb-2">
-                                            <input 
-                                                type="password" 
-                                                id="confirmPassword" 
+                                            <input
+                                                type="password"
+                                                id="confirmPassword"
                                                 name="confPass"
                                                 placeholder="Confirm password"
-                                                value={confPass} 
+                                                value={confPass}
                                                 className={`form-control form-control-lg input ${(!confPassValid ? 'is-invalid' : '')}`}
-                                                onChange={handleOnChangeInput} 
+                                                onChange={handleOnChangeInput}
                                             />
                                             <label htmlFor="confirmPassword">Confirm password</label>
                                             <div className="error-message">
                                                 {errConfPass}
                                             </div>
                                         </div>
-                                        
+
                                         <div className="mb-4">
-                                            <input 
-                                                type='checkbox' 
+                                            <input
+                                                type='checkbox'
                                                 id="terms"
                                                 className='mx-2 form-check-input'
-                                                onChange={handleCheckboxChange}/>
+                                                onChange={handleCheckboxChange} />
                                             <label htmlFor="terms" className={`form-check-label terms ${(!termValid ? 'text-danger' : 'text-white-50')}`}>
                                                 I agree to the <u className='fw-bold'>Terms & Conditions</u>
                                             </label>
                                         </div>
-                                        
+
                                         <div className="d-flex justify-content-center align-items-center pt-2">
                                             <button className="btn btn-outline-light btn-lg px-5 text-center" type="submit">Register</button>
-                                        </div>                                       
+                                        </div>
                                     </form>
                                 </div>
 

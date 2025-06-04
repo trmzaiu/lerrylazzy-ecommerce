@@ -2,13 +2,14 @@
     margin: -5px;
 }
 
-.gutter-1 > * {
+.gutter-1>* {
     margin-bottom: 0 !important;
     padding: 5px;
 }
 
 .nav-tabs {
     display: inline-flex;
+    border-bottom: none;
     border: 0;
 }
 
@@ -25,10 +26,6 @@
     background: transparent;
 }
 
-.nav-tabs {
-    border-bottom: none;
-}
-
 .nav-item .nav-link {
     border: none;
     outline: none;
@@ -39,7 +36,7 @@
     &:focus {
         color: #000;
         font-weight: bold;
-        
+
     }
 
     &:hover {
@@ -56,11 +53,10 @@
     position: absolute;
     top: 8px;
 
-    width: 30px !important; /* Initial width */
+    width: 30px !important;
+    /* Initial width */
     background: transparent;
     border-bottom: 2px solid #000;
     transition: transform 0.2s ease;
     height: 26px;
 }
-
-
