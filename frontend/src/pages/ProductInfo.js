@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Footer from '../../components/Footer'
-import ItemDetail from '../../components/ItemDetail'
-import NavBar from '../../components/Navbar'
-import { getProductById } from '../../services/productService'
-import './Product.scss'
+import Footer from '../components/Footer'
+import ItemDetail from '../components/ItemDetail'
+import NavBar from '../components/NavBar'
+import { getProductById } from '../services/productService'
+import './styles/Productpage.css'
 
 const ProductInfo = () => {
     const { productid } = useParams()

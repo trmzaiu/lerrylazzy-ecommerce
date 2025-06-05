@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Checkout from '../../components/Checkout'
 import Footer from '../../components/Footer'
 import FooterCart from '../../components/FooterCart'
-import NavBar from '../../components/Navbar'
+import NavBar from '../../components/NavBar'
 
 const CheckoutPage = () => {
     return (

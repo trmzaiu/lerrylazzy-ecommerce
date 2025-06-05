@@ -5,11 +5,11 @@ import { Link, useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext'
 import { CartContext } from '../contexts/CartContext'
 import { useSearch } from '../contexts/SearchContext'
-import Search from './Search'
+import SeachBar from './SeachBar'
 
-import './Navbar.css'
+import './styles/NavBar.css'
 
-const Navbar = () => {
+const NavBar = () => {
 	const { isAuthenticated, logout } = useContext(AuthContext)
 	const { cartQuantity } = useContext(CartContext)
 	const { updateKeyword } = useSearch()
@@ -37,20 +37,14 @@ const Navbar = () => {
 				<div className='collapse navbar-collapse mx-0' id='navbarSupportedContent'>
 					<ul className='navbar-nav mb-2 mb-lg-0 text-center mx-auto d-flex justify-content-center'>
 						<li className='nav-item'>
-							<div className='mx-3'>
-								<Link to='/' className='nav-link'>HOME</Link>
-							</div>
+							<Link to='/' className='mx-3 nav-link'>HOME</Link>
 						</li>
 						<li className='nav-item'>
-							<div className='mx-3'>
-								<Link to='/product/wool' className='nav-link'>WOOL</Link>
-							</div>
+							<Link to='/product/wool' className='mx-3 nav-link'>WOOL</Link>
 						</li>
 						<li className='nav-item dropdown mx-3 d-flex align-item-center'>
-							<div className='px-1'>
-								<Link to='/product/product' className='nav-link'>PRODUCT</Link>
-							</div>
-							<button type="button" className='dropdown-toggle bg-transparent border-0 p-0' data-bs-toggle='dropdown' aria-expanded='false' aria-label='Toggle Dropdown'></button>
+							<Link to='/product/product' className='nav-link'>PRODUCT</Link>
+							<button type="button" className='dropdown-toggle bg-transparent border-0 p-0 m-0 nav-link' data-bs-toggle='dropdown' aria-expanded='false' aria-label='Toggle Dropdown'></button>
 							<ul className='dropdown-menu'>
 								<li className='dropdown-item'><Link to='/product/product/animal' className='nav-link'>Animal</Link></li>
 								<li className='dropdown-item'><Link to='/product/product/plant' className='nav-link'>Plant</Link></li>
@@ -76,9 +70,9 @@ const Navbar = () => {
 						{isAuthenticated.token ? (
 							<div className='d-flex float-end mx-4'>
 								<button type='button' className='bg-transparent border-0 p-0'>
-									<Search onSearch={handleSearch} />
+									<SeachBar onSearch={handleSearch} />
 								</button>
-								<div className='nav-icon d-flex'>
+								<div className='nav-icon d-flex align-items-center justify-content-center'>
 									<div className='cart-count'>
 										<FontAwesomeIcon icon={faBell} className='mx-2 icon-nav' />
 										<span className='badge d-flex align-items-center justify-content-center'>
@@ -86,21 +80,21 @@ const Navbar = () => {
 										</span>
 									</div>
 								</div>
-								<div className='nav-icon d-flex'>
+								<div className='nav-icon d-flex align-items-center justify-content-center'>
 									<Link to='/cart' className='cart-count'>
-										<FontAwesomeIcon icon={faShoppingCart} className='text-color mx-2 icon-nav' />
+										<FontAwesomeIcon icon={faShoppingCart} className='mx-2 icon-nav' />
 										<span className='badge d-flex align-items-center justify-content-center'>
 											<span>{cartQuantity}</span>
 										</span>
 									</Link>
 								</div>
-								<div className='nav-icon dropdown'>
-									<button type="button" className='text-black bg-transparent border-0 p-0' data-bs-toggle='dropdown' aria-expanded='false'>
-										<FontAwesomeIcon icon={faUser} className='text-color mx-2 icon-nav' />
+								<div className='nav-icon dropdown d-flex align-items-center justify-content-center'>
+									<button type="button" className='bg-transparent border-0 p-0' data-bs-toggle='dropdown' aria-expanded='false'>
+										<FontAwesomeIcon icon={faUser} className='mx-2 icon-nav' />
 									</button>
 									<ul className=' dropdown-menu dropdown-menu-end'>
-										<li><Link to={`/profile/${isAuthenticated.user.Username}`} className='text-color dropdown-item text-dark'>Your Profile</Link></li>
-										<li><Link to='/comming-soon' className='text-color dropdown-item' style={{ cursor: 'no-drop' }}>Help & Support</Link></li>
+										<li><Link to={`/profile/${isAuthenticated.user.Username}`} className='dropdown-item'>Your Profile</Link></li>
+										<li><Link to='/comming-soon' className='dropdown-item' style={{ cursor: 'no-drop' }}>Help & Support</Link></li>
 										<li><hr className='dropdown-divider' /></li>
 										<li className='dropdown-item' style={{ cursor: 'pointer' }} onClick={handleLogout}>Sign out</li>
 									</ul>
@@ -109,13 +103,13 @@ const Navbar = () => {
 						) : (
 							<div className='d-flex float-end mx-2'>
 								<button type="button" className='bg-transparent border-0 p-0'>
-									<Search onSearch={handleSearch} />
+									<SeachBar onSearch={handleSearch} />
 								</button>
 								<div className='nav-button mx-1'>
-									<button className='btn rounded-pill border border-dark'><Link to='/login' className='text-color'>Sign In</Link></button>
+									<button className='btn rounded-pill border'><Link to='/login' className='text-brown'>Sign In</Link></button>
 								</div>
 								<div className='nav-button mx-1'>
-									<button className='btn rounded-pill border border-dark'><Link to='/register' className='text-color'><b>Sign Up</b></Link></button>
+									<button className='btn rounded-pill border'><Link to='/register' className='text-brown'><b>Sign Up</b></Link></button>
 								</div>
 							</div>
 						)}
@@ -126,4 +120,4 @@ const Navbar = () => {
 	)
 }
 
-export default Navbar
+export default NavBar

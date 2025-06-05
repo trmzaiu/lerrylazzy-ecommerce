@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CartItem from '../../components/CartItem'
 import Footer from '../../components/Footer'
 import FooterCart from '../../components/FooterCart'
-import NavBar from '../../components/Navbar'
+import NavBar from '../../components/NavBar'
 
 import './Cart.scss'
 

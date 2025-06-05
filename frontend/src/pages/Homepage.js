@@ -3,10 +3,10 @@ import Banner from '../components/Banner'
 import Footer from '../components/Footer'
 import HotItem from '../components/Item/HotItem'
 import NewItem from '../components/Item/NewItem'
-import NavBar from '../components/Navbar'
-import "./Home/Home.scss";
+import NavBar from '../components/NavBar'
+import "./styles/Home.css"
 
-const Home = () => {
+const HomePage = () => {
     return (
         <div>
             <NavBar />
@@ -38,4 +38,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomePage

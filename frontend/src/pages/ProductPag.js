@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
-import Footer from '../../components/Footer'
-import Item from '../../components/Item'
-import NavBar from '../../components/Navbar'
-import './Product.scss'
+import Footer from '../components/Footer'
+import Item from '../components/Item'
+import NavBar from '../components/NavBar'
+import './styles/Product.css'
 
 const categoryMap = {
     wool: 1,
@@ -25,7 +25,7 @@ const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-const Product = () => {
+const ProductPage = () => {
     const { category, subcategory } = useParams()
 
     const categoryid = category ? categoryMap[category.toLowerCase()] : null
@@ -63,4 +63,4 @@ const Product = () => {
     )
 }
 
-export default Product
+export default ProductPage

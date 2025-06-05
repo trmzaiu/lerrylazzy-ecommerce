@@ -1,0 +1,129 @@
+/* === Navbar (merged with .menu) === */
+.navbar {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #FFF8F3;
+    z-index: 1000;
+}
+
+/* === Logo === */
+.logo {
+    max-height: 40px;
+    width: auto;
+}
+
+/* === Nav links === */
+.navbar-nav .nav-link {
+    color: #7A4E3A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #5c392b;
+    text-decoration: none;
+}
+
+/* === Nav link underline effect === */
+.navbar-nav .nav-item a {
+    position: relative;
+}
+
+.navbar-nav .nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #7A4E3A;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-item a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+/* === Dropdown menu === */
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown .dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    margin-top: 5px;
+    background-color: #FFF8F3;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border: none;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    color: #7A4E3A;
+    padding: 4px 8px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #FFF8F3;
+}
+
+/* === Cart & Bell badge === */
+.cart-count {
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.cart-count .badge {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === Icons === */
+.icon-nav {
+    color: #7A4E3A;
+    transition: color 0.3s ease;
+    font-size: 18px;
+}
+
+/* === Auth Buttons === */
+.nav-button {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-button button {
+    width: 90px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #7A4E3A !important;
+    border-radius: 20px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.text-brown {
+    color: #7A4E3A !important;
+}

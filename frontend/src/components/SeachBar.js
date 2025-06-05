@@ -2,9 +2,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
-import './Search.scss'
+import './styles/SearchBar.css'
 
-const Search = ({ onSearch }) => {
+const SeachBar = ({ onSearch }) => {
     const [keyword, setKeyword] = useState('')
 
     const navigate = useNavigate()
@@ -23,4 +23,4 @@ const Search = ({ onSearch }) => {
     )
 }
 
-export default Search
+export default SeachBar

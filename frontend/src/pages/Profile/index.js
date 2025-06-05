@@ -12,7 +12,7 @@ import { AuthContext } from '../../contexts/AuthContext'
 import { handleDeleteUserAccount, handleShowProfile, handleUpdateProfile } from '../../services/userService'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/Navbar'
+import NavBar from '../../components/NavBar'
 import NotFound from '../../components/NotFound'
 import SideBar from '../../components/SideBar'
 import './Profile.scss'

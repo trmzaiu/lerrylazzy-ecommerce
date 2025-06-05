@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import { Link } from 'react-router-dom'
 
 import Footer from '../../components/Footer'
-import NavBar from '../../components/Navbar'
+import NavBar from '../../components/NavBar'
 import SideBar from '../../components/SideBar'
 
 import Cookies from 'js-cookie'

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Cookies from 'js-cookie'
 import Footer from '../../components/Footer'
-import NavBar from '../../components/Navbar'
+import NavBar from '../../components/NavBar'
 import SideBar from '../../components/SideBar'
 import { handleShowAllOrders } from '../../services/orderService'
 

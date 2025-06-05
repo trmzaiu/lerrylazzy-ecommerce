@@ -2,18 +2,18 @@ import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../contexts/CartContext'
-import { useSearch } from '../../contexts/SearchContext'
+import { CartContext } from '../contexts/CartContext'
+import { useSearch } from '../contexts/SearchContext'
 
 import Cookies from 'js-cookie'
-import { handleUserAddToCart } from '../../services/cartService'
-import { handleAddRemoveFavorite } from '../../services/favoriteService'
-import { getProductByKeyword } from '../../services/productService'
+import { handleUserAddToCart } from '../services/cartService'
+import { handleAddRemoveFavorite } from '../services/favoriteService'
+import { getProductByKeyword } from '../services/productService'
 
 import Spinner from 'react-bootstrap/Spinner'
-import Footer from '../../components/Footer'
-import NavBar from '../../components/Navbar'
-import NotFound from '../../components/NotFound'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
+import NotFound from '../components/NotFound'
 
 
 const ProductList = () => {

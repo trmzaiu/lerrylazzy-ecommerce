@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import ForgotPassword from './pages/Auth/ForgotPassword'
@@ -10,14 +9,14 @@ import Cart from './pages/Cart'
 import CheckoutPage from './pages/Checkout'
 import ComingSoonPage from './pages/ComingSoon'
 import Favorite from './pages/Favorite'
-import Home from './pages/Homepage'
+import Homepage from './pages/HomePage'
 import Notification from './pages/Notification/Notification'
 import Order from './pages/Order'
 import OrderCompletePage from './pages/Order/OrderComplete'
 import OrderInfo from './pages/Order/OrderInfo'
-import Product from './pages/Product'
-import ProductInfo from './pages/Product/ProductInfo'
-import ProductList from './pages/Product/ProductList'
+import ProductInfo from './pages/ProductInfo'
+import ProductList from './pages/ProductList'
+import ProductPage from './pages/ProductPag'
 import Profile from './pages/Profile'
 
 import { AuthProvider } from './contexts/AuthContext'
@@ -37,14 +36,14 @@ function App() {
                     <CartProvider>
                         <BrowserRouter>
                             <Routes>
-                                <Route path='/' exact element={<Home />} />
+                                <Route path='/' exact element={<Homepage />} />
                                 <Route path='/login' element={<Login />} />
                                 <Route path='/reset-password' element={<ForgotPassword />} />
                                 <Route path='/register' element={<Register />} />
-                                <Route path='/product/:category' element={<Product />} />
-                                <Route path='/product/product/:subcategory' element={<Product />} />
+                                <Route path='/product/:category' element={<ProductPage />} />
+                                <Route path='/product/product/:subcategory' element={<ProductPage />} />
                                 <Route path='/product/detail/:productid' element={<ProductInfo />} />
-                                <Route path='/home' element={<PrivateRoute><Home /></PrivateRoute>} />
+                                <Route path='/home' element={<PrivateRoute><Homepage /></PrivateRoute>} />
                                 <Route path='/order' element={<PrivateRoute><Order /></PrivateRoute>} />
                                 <Route path='/favorite' element={<PrivateRoute><Favorite /></PrivateRoute>} />
                                 <Route path='/cart' element={<PrivateRoute><Cart /></PrivateRoute>} />
